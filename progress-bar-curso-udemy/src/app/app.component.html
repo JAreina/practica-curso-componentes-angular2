@@ -1,0 +1,29 @@
+<h1>
+<app-progress-bar [progress]="counterProgress"></app-progress-bar>
+<app-countdown 
+ #contador
+[init]="totalCountDown"
+  (onDecrease)="updateProgress($event)"
+  
+  (onComplete)="countdownFinished()"
+></app-countdown>
+</h1>
+<!-- 
+    binding de entrada en init
+    progress property binding
+    event binding onDecrease 
+  
+  
+   template reference variable    #contador
+  utilizar metodos de hijos en padre
+  -->
+
+  <div class="initInput">
+           <label for="totalCountdown">Init on:</label>
+           <input id="totalCountdown" type="text"
+            [(ngModel)]="totalCountDown">
+  </div>
+  <button (click)="contador.startCountdown();
+                               counterProgress=0;">restart</button>
+
+     <!-- ciclos de vida -->                          
